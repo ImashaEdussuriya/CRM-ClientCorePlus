@@ -1,0 +1,520 @@
+.dashboard {
+  max-width: 1400px;
+}
+
+/* Loading and Error States */
+.loading-container,
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  gap: 16px;
+  color: #64748b;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #4f46e5;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error-container svg {
+  color: #ef4444;
+}
+
+.error-container button {
+  padding: 10px 20px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.prediction-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  border-radius: 12px;
+  padding: 24px 32px;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.3);
+}
+
+.prediction-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.prediction-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.prediction-label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+}
+
+.prediction-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+}
+
+.prediction-confidence {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.confidence-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.confidence-value {
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+}
+
+/* Upcoming Tasks Preview */
+.tasks-preview-card {
+  margin-bottom: 32px;
+}
+
+.tasks-preview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.task-preview-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border-left: 3px solid #e2e8f0;
+}
+
+.task-preview-item.high .task-priority-indicator {
+  background: #ef4444;
+}
+
+.task-priority-indicator {
+  width: 4px;
+  height: 100%;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.task-priority-indicator.high {
+  background: #ef4444;
+}
+
+.task-priority-indicator.medium {
+  background: #f59e0b;
+}
+
+.task-priority-indicator.low {
+  background: #10b981;
+}
+
+.task-preview-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.task-preview-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1e293b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.task-preview-customer {
+  font-size: 12px;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.task-preview-due {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: #94a3b8;
+  white-space: nowrap;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card-header h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.chart-subtitle {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.period-select {
+  padding: 8px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #64748b;
+  background: white;
+  cursor: pointer;
+}
+
+.view-all {
+  font-size: 14px;
+  color: #4f46e5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.view-all:hover {
+  text-decoration: underline;
+}
+
+/* Chart Placeholder */
+.chart-card {
+  grid-column: span 1;
+}
+
+.chart-placeholder {
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+  padding-top: 20px;
+}
+
+.chart-bars {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  height: 100%;
+  align-items: flex-end;
+}
+
+.chart-bar-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.chart-bar {
+  width: 100%;
+  background: linear-gradient(180deg, #4f46e5 0%, #818cf8 100%);
+  border-radius: 6px 6px 0 0;
+  position: relative;
+  min-height: 20px;
+  display: flex;
+  justify-content: center;
+  transition: height 0.3s ease;
+}
+
+.bar-value {
+  position: absolute;
+  top: -24px;
+  font-size: 10px;
+  color: #4f46e5;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.bar-label {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* Pipeline Summary */
+.pipeline-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pipeline-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.pipeline-info {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pipeline-stage {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.pipeline-count {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.pipeline-bar-container {
+  flex: 1;
+  height: 8px;
+  background: #f1f5f9;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.pipeline-bar {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.pipeline-bar.lead {
+  background: #3b82f6;
+}
+
+.pipeline-bar.proposal {
+  background: #8b5cf6;
+}
+
+.pipeline-bar.negotiation {
+  background: #f59e0b;
+}
+
+.pipeline-bar.won {
+  background: #10b981;
+}
+
+.pipeline-value {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+  width: 80px;
+  text-align: right;
+}
+
+/* Deals Table */
+.deals-table {
+  overflow-x: auto;
+}
+
+.deals-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.deals-table th {
+  text-align: left;
+  padding: 12px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.deals-table td {
+  padding: 14px 8px;
+  font-size: 14px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.deals-table .customer-name {
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.deals-table .deal-value {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.deals-table .deal-date {
+  color: #64748b;
+}
+
+.stage-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.stage-badge.lead {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.stage-badge.proposal {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+
+.stage-badge.proposal-sent {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+
+.stage-badge.negotiation {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.stage-badge.won,
+.stage-badge.closed-won {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.stage-badge.lost {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* Top Customers */
+.top-customers {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.customer-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  background: #f8fafc;
+  border-radius: 8px;
+}
+
+.customer-rank {
+  width: 28px;
+  height: 28px;
+  background: #4f46e5;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.customer-row .customer-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.customer-row .customer-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.customer-row .customer-deals {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.customer-revenue {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .tasks-preview {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .tasks-preview {
+    grid-template-columns: 1fr;
+  }
+  
+  .prediction-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .prediction-confidence {
+    align-items: center;
+  }
+}
