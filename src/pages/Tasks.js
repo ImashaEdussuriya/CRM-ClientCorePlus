@@ -111,3 +111,107 @@ const Tasks = () => {
     setDeletingTask(task);
     setShowDeleteModal(true);
   };
+
+    const handleDelete = async () => {
+    try {
+      setSubmitting(true);
+      const response = await api.delete(`/tasks/${deletingTask._id}`);
+      if (response.data.success) {
+        setTasks(prev => prev.filter(t => t._id !== deletingTask._id));
+        setShowDeleteModal(false);
+        setDeletingTask(null);
+      }
+    } catch (err) {
+      alert(err.friendlyMessage || 'Failed to delete task');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setEditingTask(null);
+    setFormData({ title: '', customer: '', dueDate: '', priority: 'medium', status: 'pending', description: '' });
+  };
+
+  const openAddModal = () => {
+    setEditingTask(null);
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    setFormData({ 
+      title: '', 
+      customer: '', 
+      dueDate: tomorrow.toISOString().split('T')[0], 
+      priority: 'medium', 
+      status: 'pending',
+      description: ''
+    });
+    setShowModal(true);
+  };
+
+  const filteredTasks = tasks.filter(task => {
+    if (filter === 'all') return true;
+    return task.status === filter;
+  });
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    if (date.toDateString() === today.toDateString()) {
+      return 'Today';
+    } else if (date.toDateString() === tomorrow.toDateString()) {
+      return 'Tomorrow';
+    } else {
+      return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    }
+  };
+
+  const isOverdue = (dateString, status) => {
+    if (status === 'completed') return false;
+    const date = new Date(dateString);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return date < today;
+  };
+
+  const getPriorityClass = (priority) => {
+    switch (priority) {
+      case 'high': return 'priority-high';
+      case 'medium': return 'priority-medium';
+      case 'low': return 'priority-low';
+      default: return '';
+    }
+  };
+
+  const taskStats = {
+    total: tasks.length,
+    pending: tasks.filter(t => t.status === 'pending').length,
+    completed: tasks.filter(t => t.status === 'completed').length,
+    overdue: tasks.filter(t => isOverdue(t.dueDate, t.status)).length,
+  };
+
+  if (loading) {
+    return (
+      <div className="tasks-page">
+        <div className="loading-state">
+          <Loader size={32} className="spinner" />
+          <p>Loading tasks...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="tasks-page">
+        <div className="error-state">
+          <AlertCircle size={32} />
+          <p>{error}</p>
+          <button className="btn btn-secondary" onClick={fetchTasks}>Try Again</button>
+        </div>
+      </div>
+    );
+  }
