@@ -25,11 +25,33 @@ const seedData = async () => {
     
     // Create sample customers
     await Customer.create([
-      { name: 'Acme Corporation', email: 'contact@acme.com', phone: '+1 (555) 123-4567', company: 'Acme Corporation', category: 'VIP', notes: 'Fortune 500 company' },
-      { name: 'Tech Solutions Ltd', email: 'info@techsolutions.com', phone: '+1 (555) 234-5678', company: 'Tech Solutions Ltd', category: 'Customer', notes: 'Software development firm' },
-      { name: 'Global Enterprises', email: 'hello@globalent.com', phone: '+1 (555) 345-6789', company: 'Global Enterprises', category: 'VIP', notes: 'International trading company' },
-      { name: 'StartUp Inc', email: 'team@startup.io', phone: '+1 (555) 456-7890', company: 'StartUp Inc', category: 'Lead', notes: 'Early-stage tech startup' },
-      { name: 'Innovation Labs', email: 'contact@innolabs.com', phone: '+1 (555) 567-8901', company: 'Innovation Labs', category: 'Customer', notes: 'R&D focused company' }
+
+  { name: 'Acme Corporation', email: 'contact@acme.com', phone: '+1 (555) 123-4567', company: 'Acme Corporation', category: 'VIP', notes: 'Fortune 500 company, long-term partnership' },
+  { name: 'Tech Solutions Ltd', email: 'info@techsolutions.com', phone: '+1 (555) 234-5678', company: 'Tech Solutions Ltd', category: 'Customer', notes: 'Software development firm' },
+  { name: 'Global Enterprises', email: 'hello@globalent.com', phone: '+1 (555) 345-6789', company: 'Global Enterprises', category: 'VIP', notes: 'International trading company' },
+  { name: 'StartUp Inc', email: 'team@startup.io', phone: '+1 (555) 456-7890', company: 'StartUp Inc', category: 'Lead', notes: 'Early-stage tech startup' },
+  { name: 'Innovation Labs', email: 'contact@innolabs.com', phone: '+1 (555) 567-8901', company: 'Innovation Labs', category: 'Customer', notes: 'R&D focused company' },
+  { name: 'Digital Dynamics', email: 'sales@digitaldyn.com', phone: '+1 (555) 678-9012', company: 'Digital Dynamics', category: 'Lead', notes: 'Digital marketing agency' },
+  { name: 'Cloud Nine Systems', email: 'support@cloudnine.io', phone: '+1 (555) 789-0123', company: 'Cloud Nine Systems', category: 'Customer', notes: 'Cloud infrastructure provider' },
+  { name: 'Bright Future Co', email: 'hello@brightfuture.com', phone: '+1 (555) 890-1234', company: 'Bright Future Co', category: 'Lead', notes: 'Renewable energy startup' },
+  { name: 'Prime Partners', email: 'info@primepartners.com', phone: '+1 (555) 901-2345', company: 'Prime Partners', category: 'VIP', notes: 'Strategic consulting firm' },
+  { name: 'NextGen Solutions', email: 'contact@nextgen.io', phone: '+1 (555) 012-3456', company: 'NextGen Solutions', category: 'Customer', notes: 'AI and ML solutions' },
+  { name: 'Metro Financial', email: 'business@metrofin.com', phone: '+1 (555) 111-2222', company: 'Metro Financial', category: 'VIP', notes: 'Financial services company' },
+  { name: 'HealthTech Plus', email: 'info@healthtechplus.com', phone: '+1 (555) 222-3333', company: 'HealthTech Plus', category: 'Customer', notes: 'Healthcare technology provider' },
+  { name: 'EcoGreen Industries', email: 'contact@ecogreen.com', phone: '+1 (555) 333-4444', company: 'EcoGreen Industries', category: 'Lead', notes: 'Sustainable manufacturing' },
+  { name: 'DataCore Analytics', email: 'sales@datacore.io', phone: '+1 (555) 444-5555', company: 'DataCore Analytics', category: 'Customer', notes: 'Big data analytics firm' },
+  { name: 'SecureNet Systems', email: 'info@securenet.com', phone: '+1 (555) 555-6666', company: 'SecureNet Systems', category: 'VIP', notes: 'Cybersecurity solutions' },
+  { name: 'LogiTrans Corp', email: 'logistics@logitrans.com', phone: '+1 (555) 666-7777', company: 'LogiTrans Corp', category: 'Customer', notes: 'Logistics and supply chain' },
+  { name: 'MediaWave Studios', email: 'hello@mediawave.tv', phone: '+1 (555) 777-8888', company: 'MediaWave Studios', category: 'Lead', notes: 'Media production company' },
+  { name: 'Quantum Computing Inc', email: 'research@quantumcomp.io', phone: '+1 (555) 888-9999', company: 'Quantum Computing Inc', category: 'Lead', notes: 'Quantum technology research' },
+  { name: 'Pacific Retail Group', email: 'partnerships@pacificretail.com', phone: '+1 (555) 999-0000', company: 'Pacific Retail Group', category: 'Customer', notes: 'Retail chain management' },
+  { name: 'Atlas Manufacturing', email: 'sales@atlasmfg.com', phone: '+1 (555) 123-9999', company: 'Atlas Manufacturing', category: 'VIP', notes: 'Industrial manufacturing' },
+  { name: 'Stellar Communications', email: 'info@stellar-comm.com', phone: '+1 (555) 234-8888', company: 'Stellar Communications', category: 'Customer', notes: 'Telecommunications provider' },
+  { name: 'Apex Legal Services', email: 'contact@apexlegal.com', phone: '+1 (555) 345-7777', company: 'Apex Legal Services', category: 'Lead', notes: 'Legal consulting firm' },
+  { name: 'TrueVision Media', email: 'ads@truevision.com', phone: '+1 (555) 456-6666', company: 'TrueVision Media', category: 'Customer', notes: 'Advertising agency' },
+  { name: 'Pinnacle Hotels', email: 'corporate@pinnaclehotels.com', phone: '+1 (555) 567-5555', company: 'Pinnacle Hotels', category: 'VIP', notes: 'Luxury hotel chain' },
+  { name: 'Swift Delivery Co', email: 'ops@swiftdelivery.com', phone: '+1 (555) 678-4444', company: 'Swift Delivery Co', category: 'Customer', notes: 'Last-mile delivery service' }
+
     ]);
     
     // Create sample deals
