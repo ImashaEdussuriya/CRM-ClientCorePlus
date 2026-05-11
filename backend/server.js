@@ -96,10 +96,32 @@ const seedData = async () => {
     
     // Create sample tasks
     await Task.create([
-      { title: 'Follow up with Acme', customer: 'Acme Corporation', dueDate: new Date('2026-01-10'), priority: 'high', status: 'pending', description: 'Discuss renewal terms' },
-      { title: 'Send proposal to Tech Solutions', customer: 'Tech Solutions Ltd', dueDate: new Date('2026-01-08'), priority: 'high', status: 'pending', description: 'Finalize and send project proposal' },
-      { title: 'Demo for StartUp Inc', customer: 'StartUp Inc', dueDate: new Date('2026-01-12'), priority: 'medium', status: 'pending', description: 'Product demonstration' },
-      { title: 'Contract review', customer: 'Global Enterprises', dueDate: new Date('2026-01-15'), priority: 'low', status: 'completed', description: 'Review contract terms' }
+  // High priority tasks
+  { title: 'Finalize Tech Solutions contract', customer: 'Tech Solutions Ltd', dueDate: new Date('2026-01-05'), priority: 'high', status: 'pending', description: 'Review and finalize contract terms for custom development project' },
+  { title: 'Follow up with Cloud Nine', customer: 'Cloud Nine Systems', dueDate: new Date('2026-01-06'), priority: 'high', status: 'pending', description: 'Discuss pricing for cloud migration services' },
+  { title: 'Demo for HealthTech Plus', customer: 'HealthTech Plus', dueDate: new Date('2026-01-08'), priority: 'high', status: 'pending', description: 'Prepare and conduct product demonstration' },
+  { title: 'Proposal review with Stellar', customer: 'Stellar Communications', dueDate: new Date('2026-01-10'), priority: 'high', status: 'pending', description: 'Review network upgrade proposal' },
+  
+  // Medium priority tasks
+  { title: 'Send quote to LogiTrans', customer: 'LogiTrans Corp', dueDate: new Date('2026-01-07'), priority: 'medium', status: 'pending', description: 'Prepare and send pricing quote for supply chain optimization' },
+  { title: 'Schedule call with DataCore', customer: 'DataCore Analytics', dueDate: new Date('2026-01-09'), priority: 'medium', status: 'pending', description: 'Discuss analytics dashboard requirements' },
+  { title: 'Update proposal for Pacific Retail', customer: 'Pacific Retail Group', dueDate: new Date('2026-01-12'), priority: 'medium', status: 'pending', description: 'Revise POS system proposal based on feedback' },
+  { title: 'Introduction call with EcoGreen', customer: 'EcoGreen Industries', dueDate: new Date('2026-01-14'), priority: 'medium', status: 'pending', description: 'Initial discovery call for environmental monitoring needs' },
+  { title: 'TrueVision requirements gathering', customer: 'TrueVision Media', dueDate: new Date('2026-01-15'), priority: 'medium', status: 'pending', description: 'Gather detailed requirements for marketing automation' },
+  
+  // Low priority tasks
+  { title: 'Send thank you email to Acme', customer: 'Acme Corporation', dueDate: new Date('2025-12-28'), priority: 'low', status: 'completed', description: 'Thank you for continued partnership' },
+  { title: 'Update CRM records for Metro', customer: 'Metro Financial', dueDate: new Date('2025-12-30'), priority: 'low', status: 'completed', description: 'Update contact information and deal history' },
+  { title: 'Research Quantum Computing needs', customer: 'Quantum Computing Inc', dueDate: new Date('2026-01-16'), priority: 'low', status: 'pending', description: 'Research their specific quantum research requirements' },
+  { title: 'Connect with Apex Legal team', customer: 'Apex Legal Services', dueDate: new Date('2026-01-18'), priority: 'low', status: 'pending', description: 'LinkedIn connection and introduction' },
+  { title: 'Prepare case study from Pinnacle', customer: 'Pinnacle Hotels', dueDate: new Date('2026-01-20'), priority: 'low', status: 'pending', description: 'Create success story case study' },
+  { title: 'Quarterly review prep for Prime', customer: 'Prime Partners', dueDate: new Date('2026-01-25'), priority: 'low', status: 'pending', description: 'Prepare materials for quarterly business review' },
+  
+  // Completed tasks (for realistic tracking)
+  { title: 'Contract signed with SecureNet', customer: 'SecureNet Systems', dueDate: new Date('2025-12-14'), priority: 'high', status: 'completed', description: 'Security suite contract finalization' },
+  { title: 'Kickoff meeting with Pinnacle', customer: 'Pinnacle Hotels', dueDate: new Date('2025-11-28'), priority: 'medium', status: 'completed', description: 'Project kickoff for hotel management system' },
+  { title: 'Demo completed for Atlas', customer: 'Atlas Manufacturing', dueDate: new Date('2025-07-15'), priority: 'high', status: 'completed', description: 'Manufacturing automation demo' },
+  { title: 'Proposal sent to Innovation Labs', customer: 'Innovation Labs', dueDate: new Date('2025-10-25'), priority: 'medium', status: 'completed', description: 'R&D partnership proposal' }
     ]);
     
     console.log('Database seeded successfully!');
