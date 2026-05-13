@@ -20,9 +20,11 @@ const seedData = async () => {
     // Create default users
     await User.create([
       { email: 'admin@clientcore.com', password: 'admin123', name: 'Admin User', role: 'admin' },
-      { email: 'user@clientcore.com', password: 'user123', name: 'John Doe', role: 'user' }
-    ]);
-    
+      { email: 'user@clientcore.com', password: 'user123', name: 'John Doe', role: 'user' },
+    // Add new user here
+     { email: 'newuser@clientcore.com', password: 'password123', name: 'New User', role: 'user' }
+     ]);
+
     // Create sample customers
     await Customer.create([
 
